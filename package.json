@@ -1,0 +1,23 @@
+{
+  "name": "new_stripe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "netlify-lambda serve functions",
+    "build": "netlify-lambda build functions"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "netlify-lambda": "^2.0.15",
+    "serverless-http": "^3.0.1",
+    "stripe": "^9.10.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1"
+  }
+}
