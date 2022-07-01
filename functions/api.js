@@ -58,6 +58,7 @@ router.post('/create-checkout-session', async (req, res) => {
     //res.status(303): task
     res.header('Access-Control-Allow-Origin', 'https://omozon.netlify.app')
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT')
     res.json(session.url)
 })
 
