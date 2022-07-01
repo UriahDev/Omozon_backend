@@ -11,7 +11,8 @@ const app = express()
 //Setting up middlewares
 app.use(express.json())
 app.use(cors({
-    origin: 'https://omozon.netlify.app'
+    origin: 'https://omozon.netlify.app',
+    credentials: true
 }))
 
 const YOUR_DOMAIN = process.env.YOUR_DOMAIN
