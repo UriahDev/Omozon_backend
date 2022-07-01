@@ -11,8 +11,8 @@ const app = express()
 //Setting up middlewares
 app.use(express.json())
 app.use(cors({
-    origin: 'https://omozon.netlify.app',
-    credentials: false
+    origin: process.env.CORS_DOMAIN,
+    credentials: true
 }))
 
 const YOUR_DOMAIN = process.env.YOUR_DOMAIN
@@ -56,7 +56,7 @@ router.post('/create-checkout-session', async (req, res) => {
       cancel_url: `${YOUR_DOMAIN}?canceled=true`,
     })
     //res.status(303): task
-    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Origin', process.env.CORS_DOMAIN)
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT')
     res.json(session.url)
