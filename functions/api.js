@@ -49,8 +49,6 @@ router.post('/create-checkout-session', async (req, res) => {
       allProducts.push(store)
     }
 
-    console.log(allProducts)
-
     const session = await stripe.checkout.sessions.create({
       line_items: allProducts,
       mode: 'payment',
