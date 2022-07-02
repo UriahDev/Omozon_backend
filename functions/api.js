@@ -19,7 +19,6 @@ const YOUR_DOMAIN = process.env.YOUR_DOMAIN
 
 router.post('/create-checkout-session', async (req, res) => {
     const products = req.body.products
-    console.log(products)
     let allProducts = []
     if(products.length !== 0) allProducts.push({price: process.env.PRICE_0, quantity: 1})
     
