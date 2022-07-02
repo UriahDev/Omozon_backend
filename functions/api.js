@@ -19,13 +19,14 @@ const YOUR_DOMAIN = process.env.YOUR_DOMAIN
 
 router.post('/create-checkout-session', async (req, res) => {
     const products = req.body.products
+    console.log(products)
     let allProducts = []
     if(products.length !== 0) allProducts.push({price: process.env.PRICE_0, quantity: 1})
     
-    products.map(product => {
+    for(let i = 0; i < products.length; i++) {
       let getPrice
       const p = process.env
-      switch(product) {
+      switch(products[i][0]) {
         case 1:
           getPrice = p.PRICE_1
           break
@@ -44,10 +45,11 @@ router.post('/create-checkout-session', async (req, res) => {
         default:
           //Look for a logic for the default
       }
-      //Product Quantity: TODO
-      const store = { price: getPrice, quantity: 1 }
+      const store = {price: getPrice, quantity: products[i][1]}
       allProducts.push(store)
-    })
+    }
+
+    console.log(allProducts)
 
     const session = await stripe.checkout.sessions.create({
       line_items: allProducts,
